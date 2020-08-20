@@ -148,11 +148,17 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\Bullet\BulletManager.cpp" />
+    <ClCompile Include="src\Kernel\Primitives\DrawableLine.cpp" />
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\Wall\Wall.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Bullet\StartBulletInfo.h" />
     <ClInclude Include="src\Bullet\BulletManager.h" />
+    <ClInclude Include="src\Kernel\IDrawable.h" />
+    <ClInclude Include="src\Kernel\Math.h" />
+    <ClInclude Include="src\Kernel\Primitives\DrawableLine.h" />
+    <ClInclude Include="src\Wall\Wall.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
