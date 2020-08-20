@@ -3,7 +3,6 @@
 
 class BulletManager {
 public:
-
 	void Update(float globalTime);
 
 	void Fire(const StartBulletInfo& bullet);

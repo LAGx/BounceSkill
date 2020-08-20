@@ -1,8 +1,5 @@
 #pragma once
-
-namespace sf {
-	class RenderWindow;
-}
+#include "SFML/Graphics/RenderWindow.hpp"
 
 struct IDrawable {
 	virtual void render(sf::RenderWindow&) = 0;

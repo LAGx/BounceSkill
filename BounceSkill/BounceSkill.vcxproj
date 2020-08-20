@@ -119,6 +119,7 @@
       <PreprocessorDefinitions>SFML_STATIC;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(SFML_PATH)\include;$(GLM_PATH)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -136,6 +137,7 @@
       <PreprocessorDefinitions>SFML_STATIC;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(SFML_PATH)\include;$(GLM_PATH)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -148,16 +150,28 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\Bullet\BulletManager.cpp" />
+    <ClCompile Include="src\Bullet\BulletObject.cpp" />
+    <ClCompile Include="src\ExternalCode\FPSController.cpp" />
+    <ClCompile Include="src\ExternalCode\System.cpp" />
+    <ClCompile Include="src\Kernel\Math.cpp" />
     <ClCompile Include="src\Kernel\Primitives\DrawableLine.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\Wall\Wall.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Bullet\BulletObject.h" />
     <ClInclude Include="src\Bullet\StartBulletInfo.h" />
     <ClInclude Include="src\Bullet\BulletManager.h" />
+    <ClInclude Include="src\ExternalCode\FPSController.h" />
+    <ClInclude Include="src\ExternalCode\NumberCircle.h" />
+    <ClInclude Include="src\ExternalCode\ReadMe.h" />
+    <ClInclude Include="src\ExternalCode\System.h" />
+    <ClInclude Include="src\ExternalCode\TimeValue.h" />
     <ClInclude Include="src\Kernel\IDrawable.h" />
+    <ClInclude Include="src\Kernel\ISimulatable.h" />
     <ClInclude Include="src\Kernel\Math.h" />
     <ClInclude Include="src\Kernel\Primitives\DrawableLine.h" />
+    <ClInclude Include="src\Kernel\Time.h" />
     <ClInclude Include="src\Wall\Wall.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

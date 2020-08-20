@@ -1,6 +1,7 @@
 #pragma once
 #include "../Kernel/IDrawable.h"
 
+// Assuume that wall phisically is a line
 class Wall: IDrawable {
 public:
 	// IDrawable
