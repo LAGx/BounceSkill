@@ -1,6 +1,11 @@
 #include "BulletObject.h"
 #include "../Kernel/Math.h"
 
+const sf::Color BulletObject::mainColor = { 120, 25, 50, 255 };
+const sf::Color BulletObject::outlineColor = { 225, 50, 150, 255 };
+const float BulletObject::outlineSize = -1.f;
+const float BulletObject::drawableRadius = 3.f;
+const float BulletObject::drawableSegments = 12.f;
 
 BulletObject::BulletObject(const StartBulletInfo& info) 
 	: shape(drawableRadius, drawableSegments)

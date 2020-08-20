@@ -18,11 +18,11 @@ public:
 	void simulate(const TimeInfo& time) override;
 
 public:
-	const sf::Color mainColor = { 120, 25, 50, 255 };
-	const sf::Color outlineColor = { 225, 50, 150, 255 };
-	const float outlineSize = -1.f;
-	const float drawableRadius = 3.f;
-	const float drawableSegments = 12.f;
+	static const sf::Color mainColor;
+	static const sf::Color outlineColor;
+	static const float outlineSize;
+	static const float drawableRadius;
+	static const float drawableSegments;
 private:
 	sf::CircleShape shape;
 
