@@ -3,12 +3,16 @@
   <ImportGroup Label="PropertySheets" />
   <PropertyGroup Label="UserMacros">
     <SFML_PATH>C:\dev\cpp\libs\SFML</SFML_PATH>
+    <GLM_PATH>C:\dev\cpp\libs\glm-0.9.9.7</GLM_PATH>
   </PropertyGroup>
   <PropertyGroup />
   <ItemDefinitionGroup />
   <ItemGroup>
     <BuildMacro Include="SFML_PATH">
       <Value>$(SFML_PATH)</Value>
+    </BuildMacro>
+    <BuildMacro Include="GLM_PATH">
+      <Value>$(GLM_PATH)</Value>
     </BuildMacro>
   </ItemGroup>
 </Project>
