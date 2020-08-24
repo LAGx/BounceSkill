@@ -153,6 +153,7 @@
     <ClCompile Include="src\Bullet\BulletObject.cpp" />
     <ClCompile Include="src\ExternalCode\FPSController.cpp" />
     <ClCompile Include="src\ExternalCode\System.cpp" />
+    <ClCompile Include="src\Kernel\CollisionDetector\TwoPointLineCollider.cpp" />
     <ClCompile Include="src\Kernel\Math.cpp" />
     <ClCompile Include="src\Kernel\Primitives\DrawableLine.cpp" />
     <ClCompile Include="src\main.cpp" />
@@ -163,10 +164,13 @@
     <ClInclude Include="src\Bullet\StartBulletInfo.h" />
     <ClInclude Include="src\Bullet\BulletManager.h" />
     <ClInclude Include="src\ExternalCode\FPSController.h" />
+    <ClInclude Include="src\ExternalCode\ListenerManager.h" />
     <ClInclude Include="src\ExternalCode\NumberCircle.h" />
     <ClInclude Include="src\ExternalCode\ReadMe.h" />
     <ClInclude Include="src\ExternalCode\System.h" />
     <ClInclude Include="src\ExternalCode\TimeValue.h" />
+    <ClInclude Include="src\Kernel\CollisionDetector\CollisionDetector.h" />
+    <ClInclude Include="src\Kernel\CollisionDetector\TwoPointLineCollider.h" />
     <ClInclude Include="src\Kernel\IDrawable.h" />
     <ClInclude Include="src\Kernel\ISimulatable.h" />
     <ClInclude Include="src\Kernel\Math.h" />

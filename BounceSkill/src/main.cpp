@@ -14,7 +14,6 @@ int main()
         BulletObject bullet(bulletInfo);
         //DrawableLine line2();
         //DrawableLine line2();
-
        
         //shape.setFillColor(sf::Color::Green);
 
