@@ -7,5 +7,5 @@ typedef unsigned long long ClassId;
 
 struct IGameObject: public IDrawable, public ISimulatable{
 	virtual ClassId getClassId() const = 0;
-	virtual ICollider* getCollider() const { return nullptr; }
+	virtual const ICollider* getCollider() const { return nullptr; }
 };

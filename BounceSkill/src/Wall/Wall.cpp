@@ -13,6 +13,10 @@ void Wall::render(sf::RenderWindow& window) const {
 	drawableLine.render(window);
 }
 
+const ICollider* Wall::getCollider() const {
+	return &collider; 
+}
+
 ClassId Wall::getClassId() const{
 	return gameClassId;
 }

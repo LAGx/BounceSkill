@@ -7,7 +7,7 @@
 
 class ICollisionListener {
 public:
-	virtual void onCollisionDetection(ICollider* colliderA, ICollider* colliderB, const CollisionInfo& info) = 0;
+	virtual void onCollisionDetection(const ICollider* colliderA, const ICollider* colliderB, const CollisionInfo& info) = 0;
 };
 
 
@@ -17,11 +17,11 @@ public:
 	~CollisionDetectorManager();
 
 	void update();
-	void registerObject(ICollider*);
-	void unregisterObject(ICollider*);
+	void registerObject(const ICollider*);
+	void unregisterObject(const ICollider*);
 
 public:
-	std::vector<ICollider*> colliders;
+	std::vector<const ICollider*> colliders;
 
 public:
 	ICollisionDetector* findDetector(const ClassColliderNickPair&) const;

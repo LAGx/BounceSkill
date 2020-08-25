@@ -1,6 +1,5 @@
 #pragma once
-#include "../Kernel/IDrawable.h"
-#include "../Kernel/ISimulatable.h"
+#include "../Kernel/IGameObject.h"
 #include "SFML/Graphics/Color.hpp"
 #include "SFML/Graphics/CircleShape.hpp"
 #include "StartBulletInfo.h"
@@ -18,10 +17,10 @@ public:
 	void render(sf::RenderWindow& window) const override;
 	void simulate(const TimeInfo& time) override;
 	ClassId getClassId() const override;
-	ICollider* getCollider() const override;
+	const ICollider* getCollider() const override;
 
 	// ICollisionListener
-	void onCollisionDetection(ICollider* colliderA, ICollider* colliderB, const CollisionInfo& info);
+	void onCollisionDetection(const ICollider* colliderA, const ICollider* colliderB, const CollisionInfo& info);
 
 public:
 	static const sf::Color mainColor;

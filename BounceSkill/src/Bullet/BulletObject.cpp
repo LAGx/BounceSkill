@@ -12,7 +12,8 @@ const ClassId BulletObject::gameClassId = 2;
 
 BulletObject::BulletObject(const StartBulletInfo& info) 
 	: shape(drawableRadius, drawableSegments)
-	, position(info.position) {
+	, position(info.position) 
+{
 
 	shape.setPosition(convert(info.position));
 	shape.setFillColor(mainColor);
@@ -44,10 +45,9 @@ ClassId BulletObject::getClassId() const{
 	return gameClassId;
 }
 
-ICollider* BulletObject::getCollider() const{
-	return ;
+const ICollider* BulletObject::getCollider() const{
+	return &deltaCollider;
 }
 
-void BulletObject::onCollisionDetection(ICollider* colliderA, ICollider* colliderB, const CollisionInfo& info){
-	
+void BulletObject::onCollisionDetection(const ICollider* colliderA, const ICollider* colliderB, const CollisionInfo& info){
 }

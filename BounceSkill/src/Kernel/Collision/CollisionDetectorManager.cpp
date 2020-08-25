@@ -40,7 +40,7 @@ void CollisionDetectorManager::update(){
 }
 
 
-void CollisionDetectorManager::registerObject(ICollider* collider){
+void CollisionDetectorManager::registerObject(const ICollider* collider){
 	auto found = std::find(colliders.begin(), colliders.end(), collider);
 	
 	if (found == colliders.end())
@@ -48,7 +48,7 @@ void CollisionDetectorManager::registerObject(ICollider* collider){
 }
 
 
-void CollisionDetectorManager::unregisterObject(ICollider* collider){
+void CollisionDetectorManager::unregisterObject(const ICollider* collider){
 	auto found = std::find(colliders.begin(), colliders.end(), collider);
 
 	if (found != colliders.end())

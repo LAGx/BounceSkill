@@ -13,6 +13,7 @@ public:
 	void render(sf::RenderWindow&) const override;
 	ClassId getClassId() const override;
 	void simulate(const TimeInfo&) override;
+	const ICollider* getCollider() const override;
 
 public:
 	const static ClassId gameClassId;

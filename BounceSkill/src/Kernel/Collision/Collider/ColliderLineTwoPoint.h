@@ -4,6 +4,7 @@
 
 class ColliderLineTwoPoint : public ICollider {
 public:
+	ColliderLineTwoPoint() = default;
 	ColliderLineTwoPoint(glm::vec2 _pointA, glm::vec2 _pointB);
 
 	ClassColliderNick getClassColliderNick() const override;
