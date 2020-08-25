@@ -39,7 +39,16 @@
     <ClCompile Include="src\ExternalCode\System.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Kernel\CollisionDetector\TwoPointLineCollider.cpp">
+    <ClCompile Include="src\Kernel\Collision\Collider\ColliderLineTwoPoint.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Kernel\Collision\Detector\CollisionDetectorLineToLine.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Kernel\Collision\CollisionTypes.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Kernel\Collision\CollisionDetectorManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -86,13 +95,25 @@
     <ClInclude Include="src\ExternalCode\TimeValue.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Kernel\CollisionDetector\CollisionDetector.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="src\ExternalCode\ListenerManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Kernel\CollisionDetector\TwoPointLineCollider.h">
+    <ClInclude Include="src\Kernel\Collision\CollisionTypes.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Kernel\Collision\Collider\ICollider.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Kernel\Collision\Detector\ICollisionDetector.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Kernel\Collision\Detector\CollisionDetectorLineToLine.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Kernel\Collision\Collider\ColliderLineTwoPoint.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Kernel\Collision\CollisionDetectorManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

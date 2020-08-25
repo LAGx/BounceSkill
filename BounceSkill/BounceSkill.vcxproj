@@ -153,7 +153,10 @@
     <ClCompile Include="src\Bullet\BulletObject.cpp" />
     <ClCompile Include="src\ExternalCode\FPSController.cpp" />
     <ClCompile Include="src\ExternalCode\System.cpp" />
-    <ClCompile Include="src\Kernel\CollisionDetector\TwoPointLineCollider.cpp" />
+    <ClCompile Include="src\Kernel\Collision\Collider\ColliderLineTwoPoint.cpp" />
+    <ClCompile Include="src\Kernel\Collision\CollisionDetectorManager.cpp" />
+    <ClCompile Include="src\Kernel\Collision\CollisionTypes.cpp" />
+    <ClCompile Include="src\Kernel\Collision\Detector\CollisionDetectorLineToLine.cpp" />
     <ClCompile Include="src\Kernel\Math.cpp" />
     <ClCompile Include="src\Kernel\Primitives\DrawableLine.cpp" />
     <ClCompile Include="src\main.cpp" />
@@ -169,8 +172,12 @@
     <ClInclude Include="src\ExternalCode\ReadMe.h" />
     <ClInclude Include="src\ExternalCode\System.h" />
     <ClInclude Include="src\ExternalCode\TimeValue.h" />
-    <ClInclude Include="src\Kernel\CollisionDetector\CollisionDetector.h" />
-    <ClInclude Include="src\Kernel\CollisionDetector\TwoPointLineCollider.h" />
+    <ClInclude Include="src\Kernel\Collision\Collider\ColliderLineTwoPoint.h" />
+    <ClInclude Include="src\Kernel\Collision\Collider\ICollider.h" />
+    <ClInclude Include="src\Kernel\Collision\CollisionDetectorManager.h" />
+    <ClInclude Include="src\Kernel\Collision\CollisionTypes.h" />
+    <ClInclude Include="src\Kernel\Collision\Detector\CollisionDetectorLineToLine.h" />
+    <ClInclude Include="src\Kernel\Collision\Detector\ICollisionDetector.h" />
     <ClInclude Include="src\Kernel\IDrawable.h" />
     <ClInclude Include="src\Kernel\ISimulatable.h" />
     <ClInclude Include="src\Kernel\Math.h" />
