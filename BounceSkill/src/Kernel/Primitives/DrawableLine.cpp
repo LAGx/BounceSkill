@@ -13,7 +13,7 @@ DrawableLine::DrawableLine(glm::vec2 pointA, glm::vec2 pointB, float width, sf::
 }
 
 // IDrawable
-void DrawableLine::render(sf::RenderWindow& window) {
+void DrawableLine::render(sf::RenderWindow& window) const {
 	window.draw(freeConvex);
 }
 

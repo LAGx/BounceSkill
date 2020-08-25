@@ -5,5 +5,5 @@
 class CollisionDetectorLineToLine : public ICollisionDetector {
 public:
 	ClassColliderNickPair getSupportedNickPair() const override;
-	bool detectionMethod(ICollider* colliderA, ICollider* colliderB, CollisionInfo& info) override;
+	bool detectionMethod(const ICollider* colliderA, const ICollider* colliderB, CollisionInfo& info) override;
 };

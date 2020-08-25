@@ -153,6 +153,7 @@
     <ClCompile Include="src\Bullet\BulletObject.cpp" />
     <ClCompile Include="src\ExternalCode\FPSController.cpp" />
     <ClCompile Include="src\ExternalCode\System.cpp" />
+    <ClCompile Include="src\Game\GameManager.cpp" />
     <ClCompile Include="src\Kernel\Collision\Collider\ColliderLineTwoPoint.cpp" />
     <ClCompile Include="src\Kernel\Collision\CollisionDetectorManager.cpp" />
     <ClCompile Include="src\Kernel\Collision\CollisionTypes.cpp" />
@@ -172,6 +173,8 @@
     <ClInclude Include="src\ExternalCode\ReadMe.h" />
     <ClInclude Include="src\ExternalCode\System.h" />
     <ClInclude Include="src\ExternalCode\TimeValue.h" />
+    <ClInclude Include="src\Game\GameManager.h" />
+    <ClInclude Include="src\Game\SceneData.h" />
     <ClInclude Include="src\Kernel\Collision\Collider\ColliderLineTwoPoint.h" />
     <ClInclude Include="src\Kernel\Collision\Collider\ICollider.h" />
     <ClInclude Include="src\Kernel\Collision\CollisionDetectorManager.h" />
@@ -179,11 +182,13 @@
     <ClInclude Include="src\Kernel\Collision\Detector\CollisionDetectorLineToLine.h" />
     <ClInclude Include="src\Kernel\Collision\Detector\ICollisionDetector.h" />
     <ClInclude Include="src\Kernel\IDrawable.h" />
+    <ClInclude Include="src\Kernel\IGameObject.h" />
     <ClInclude Include="src\Kernel\ISimulatable.h" />
     <ClInclude Include="src\Kernel\Math.h" />
     <ClInclude Include="src\Kernel\Primitives\DrawableLine.h" />
     <ClInclude Include="src\Kernel\Time.h" />
     <ClInclude Include="src\Wall\Wall.h" />
+    <ClInclude Include="src\Wall\WallData.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -6,13 +6,13 @@ ClassColliderNickPair CollisionDetectorLineToLine::getSupportedNickPair() const
 	return { GetColliderNickName(ColliderLineTwoPoint), GetColliderNickName(ColliderLineTwoPoint)};
 }
 
-bool CollisionDetectorLineToLine::detectionMethod(ICollider* colliderA, ICollider* colliderB, CollisionInfo& info)
+bool CollisionDetectorLineToLine::detectionMethod(const ICollider* colliderA, const ICollider* colliderB, CollisionInfo& info)
 {
 	if (getSupportedNickPair() != ClassColliderNickPair {colliderA->getClassColliderNick(), colliderB->getClassColliderNick()})
 		assert("CollisionDetectorLineToLine does not support this collider types");
 
-	ColliderLineTwoPoint* castedColliderA = static_cast<ColliderLineTwoPoint*>(colliderA);
-	ColliderLineTwoPoint* castedColliderB = static_cast<ColliderLineTwoPoint*>(colliderB);
+	const ColliderLineTwoPoint* castedColliderA = static_cast<const ColliderLineTwoPoint*>(colliderA);
+	const ColliderLineTwoPoint* castedColliderB = static_cast<const ColliderLineTwoPoint*>(colliderB);
 
 	glm::vec3 cut1 = { castedColliderA->pointB - castedColliderA->pointA, 0 };
 	glm::vec3 cut2 = { castedColliderB->pointB - castedColliderB->pointA, 0 };

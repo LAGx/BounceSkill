@@ -4,6 +4,11 @@
 
 const ClassColliderNick ColliderLineTwoPoint::colliderNickName = 10;
 
+ColliderLineTwoPoint::ColliderLineTwoPoint(glm::vec2 _pointA, glm::vec2 _pointB)
+	: pointA(_pointA)
+	,pointB(_pointB)
+	{}
+
 ClassColliderNick ColliderLineTwoPoint::getClassColliderNick() const{
     return colliderNickName;
 }

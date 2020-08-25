@@ -11,7 +11,7 @@ public:
 };
 
 
-class CollisionDetectorManager: ListenerManager<ICollisionListener> {
+class CollisionDetectorManager: public ListenerManager<ICollisionListener> {
 public:
 	CollisionDetectorManager();
 	~CollisionDetectorManager();

@@ -1,9 +1,22 @@
 #pragma once
-#include "../Kernel/IDrawable.h"
+#include "../Kernel/IGameObject.h"
+#include "../Kernel/Primitives/DrawableLine.h"
+#include "../Kernel/Collision/Collider/ColliderLineTwoPoint.h"
+#include "WallData.h"
 
 // Assuume that wall phisically is a line
-class Wall: IDrawable {
+class Wall: public IGameObject {
 public:
-	// IDrawable
-	void render(sf::RenderWindow&) override;
+	Wall(const WallData&);
+
+	// IGameObject
+	void render(sf::RenderWindow&) const override;
+	ClassId getClassId() const override;
+	void simulate(const TimeInfo&) override;
+
+public:
+	const static ClassId gameClassId;
+private:
+	StaticColliderLineTwoPoint collider;
+	const DrawableLine drawableLine;
 };

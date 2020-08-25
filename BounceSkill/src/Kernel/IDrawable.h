@@ -2,5 +2,5 @@
 #include "SFML/Graphics/RenderWindow.hpp"
 
 struct IDrawable {
-	virtual void render(sf::RenderWindow&) = 0;
+	virtual void render(sf::RenderWindow&) const = 0;
 };

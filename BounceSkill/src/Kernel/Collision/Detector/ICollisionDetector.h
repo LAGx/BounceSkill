@@ -6,5 +6,5 @@
 class ICollisionDetector {
 public:
 	virtual ClassColliderNickPair getSupportedNickPair() const = 0;
-	virtual bool detectionMethod(ICollider* colliderA, ICollider* colliderB, CollisionInfo& info) = 0;
+	virtual bool detectionMethod(const ICollider* colliderA, const ICollider* colliderB, CollisionInfo& info) = 0;
 };
