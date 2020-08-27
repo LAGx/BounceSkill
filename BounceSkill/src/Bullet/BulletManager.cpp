@@ -34,7 +34,7 @@ void BulletManager::Update(float globalTime) {
 }
 
 void BulletManager::utilizeSharedBuffer() {
-	if (sharedBufferInfo.size() == 0)
+	if (sharedBufferSize == 0)
 		return;
 
 	bool locked = bufferInfo_mut.try_lock();
@@ -43,6 +43,7 @@ void BulletManager::utilizeSharedBuffer() {
 			managingBullets.push_back({ stInfo });
 		}
 		sharedBufferInfo.clear();
+		sharedBufferSize = 0;
 		failsToGetSharedResourceByMainThread = 0;
 		bufferInfo_mut.unlock();
 		forceSync_cv.notify_all();
@@ -53,17 +54,14 @@ void BulletManager::utilizeSharedBuffer() {
 }
 
 void BulletManager::SyncFire(const StartBulletInfo& bullet) {
-	std::unique_lock<std::mutex> forceWait(forceSync_mut);
+	std::unique_lock<std::mutex> forceWait(bufferInfo_mut);
 
-	const auto waitPredicate = [this]() -> bool{
-		return !this->forceGetSharedResource();
-	};
+	forceSync_cv.wait(forceWait, [this]() -> bool {
+			return !this->forceGetSharedResource();
+		});
 
-	forceSync_cv.wait(forceWait, waitPredicate);
-
-	bufferInfo_mut.lock();
 	sharedBufferInfo.push_back(bullet);
-	bufferInfo_mut.unlock();
+	++sharedBufferSize;
 }
 
 void BulletManager::Fire(const StartBulletInfo& bullet){

@@ -4,7 +4,7 @@
 #include <glm/gtx/rotate_vector.hpp>
 
 const unsigned int TestMultilauncherBullets::threadsAmount = 4;
-const unsigned int TestMultilauncherBullets::bulletPerThreadAmount = 5;
+const unsigned int TestMultilauncherBullets::bulletPerThreadAmount = 6;
 
 
 void TestMultilauncherBullets::init(){
