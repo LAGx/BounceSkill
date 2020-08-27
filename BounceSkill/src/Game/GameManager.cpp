@@ -8,6 +8,9 @@ void GameManager::init(){
 	window.reset(new sf::RenderWindow(sf::VideoMode(900, 500), "Tupa adixau, realno..."));
 	collisionManager.reset(new CollisionDetectorManager());
         bulletManager.reset(new BulletManager());
+        multilauncher.reset(new TestMultilauncherBullets());
+        multilauncher->init();
+
         fpsController.setTargetFPS(60);
 }
 
@@ -58,7 +61,9 @@ void GameManager::cleanup(){
                         collisionManager->unregisterObject(collider);
                 delete obj;
         }
+
         gameObjects.clear();
+        multilauncher->cleanup();
         window.release();
 }
 

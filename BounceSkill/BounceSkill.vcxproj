@@ -151,6 +151,7 @@
   <ItemGroup>
     <ClCompile Include="src\Bullet\BulletManager.cpp" />
     <ClCompile Include="src\Bullet\BulletObject.cpp" />
+    <ClCompile Include="src\Bullet\TestMultilauncherBullets.cpp" />
     <ClCompile Include="src\ExternalCode\FPSController.cpp" />
     <ClCompile Include="src\ExternalCode\System.cpp" />
     <ClCompile Include="src\Game\GameManager.cpp" />
@@ -167,6 +168,7 @@
     <ClInclude Include="src\Bullet\BulletObject.h" />
     <ClInclude Include="src\Bullet\BulletInfo.h" />
     <ClInclude Include="src\Bullet\BulletManager.h" />
+    <ClInclude Include="src\Bullet\TestMultilauncherBullets.h" />
     <ClInclude Include="src\ExternalCode\FPSController.h" />
     <ClInclude Include="src\ExternalCode\ListenerManager.h" />
     <ClInclude Include="src\ExternalCode\NumberCircle.h" />

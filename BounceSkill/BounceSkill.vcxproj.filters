@@ -54,6 +54,9 @@
     <ClCompile Include="src\Game\GameManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\Bullet\TestMultilauncherBullets.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Bullet\BulletManager.h">
@@ -129,6 +132,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\Bullet\BulletInfo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Bullet\TestMultilauncherBullets.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

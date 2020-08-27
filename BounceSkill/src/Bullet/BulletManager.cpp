@@ -33,11 +33,41 @@ void BulletManager::Update(float globalTime) {
 	}
 }
 
-void BulletManager::Fire(const StartBulletInfo& bullet) {
+void BulletManager::utilizeSharedBuffer() {
+	if (sharedBufferInfo.size() == 0)
+		return;
+
+	bool locked = bufferInfo_mut.try_lock();
+	if (locked) {
+		for (const auto& stInfo : sharedBufferInfo) {
+			managingBullets.push_back({ stInfo });
+		}
+		sharedBufferInfo.clear();
+		failsToGetSharedResourceByMainThread = 0;
+		bufferInfo_mut.unlock();
+		forceSync_cv.notify_all();
+	}
+	else {
+		++failsToGetSharedResourceByMainThread;
+	}
+}
+
+void BulletManager::SyncFire(const StartBulletInfo& bullet) {
+	std::unique_lock<std::mutex> forceWait(forceSync_mut);
+
+	const auto waitPredicate = [this]() -> bool{
+		return true;//this->forceGetSharedResource();
+	};
+
+	forceSync_cv.wait(forceWait, waitPredicate);
+
+	bufferInfo_mut.lock();
+	sharedBufferInfo.push_back(bullet);
+	bufferInfo_mut.unlock();
+}
+
+void BulletManager::Fire(const StartBulletInfo& bullet){
 	managingBullets.push_back({ bullet });
-	//bufferInfo_mut.lock();
-	//sharedBufferInfo.push_back(bullet);
-	//bufferInfo_mut.unlock();
 }
 
 void BulletManager::onCollisionDetection(const ICollider* colliderA, const ICollider* colliderB, const CollisionInfo& info){
@@ -69,6 +99,7 @@ void BulletManager::deleteBullet(IGameObject* obj){
 		gameManager.deleteGameObject(obj);
 }
 
-void BulletManager::utilizeSharedBuffer(){
-	//managingBullets.push_back({ bullet });
+
+bool BulletManager::forceGetSharedResource() const {
+	return failsToGetSharedResourceByMainThread >= limitToForceGettingResource;
 }

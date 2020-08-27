@@ -5,6 +5,8 @@
 #include "SceneData.h"
 #include "../Kernel/IGameObject.h"
 #include "../Bullet/BulletManager.h"
+#include "../Bullet/TestMultilauncherBullets.h"
+
 
 class GameManager {
 public:
@@ -21,6 +23,7 @@ public:
 
 public:
 	std::unique_ptr<CollisionDetectorManager> collisionManager;
+	std::unique_ptr<BulletManager> bulletManager;
 
 private:
 	void onUpdate();
@@ -28,7 +31,7 @@ private:
 
 private:
 	std::unique_ptr<sf::RenderWindow> window;
-	std::unique_ptr<BulletManager> bulletManager;
+	std::unique_ptr<TestMultilauncherBullets> multilauncher;
 	rofle::FPSController fpsController;
 	TimeInfo currentTimeInfo;
 
