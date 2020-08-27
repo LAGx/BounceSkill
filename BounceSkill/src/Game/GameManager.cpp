@@ -82,11 +82,11 @@ GameManager::~GameManager(){
 
 void GameManager::onUpdate(){
         for (auto obj : gameObjects) {
-                collisionManager->update();
                 obj->simulate(currentTimeInfo);
                 obj->render(*window);
         }
 
+        collisionManager->update();
         bulletManager->Update(currentTimeInfo.global);
         postUpdate();
 }

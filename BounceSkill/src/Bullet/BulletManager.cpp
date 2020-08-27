@@ -14,6 +14,9 @@ BulletManager::~BulletManager(){
 }
 
 void BulletManager::Update(float globalTime) {
+
+	utilizeSharedBuffer();
+
 	for (int i = 0; i < managingBullets.size(); ++i) {
 		auto& info = managingBullets[i];
 
@@ -32,6 +35,9 @@ void BulletManager::Update(float globalTime) {
 
 void BulletManager::Fire(const StartBulletInfo& bullet) {
 	managingBullets.push_back({ bullet });
+	//bufferInfo_mut.lock();
+	//sharedBufferInfo.push_back(bullet);
+	//bufferInfo_mut.unlock();
 }
 
 void BulletManager::onCollisionDetection(const ICollider* colliderA, const ICollider* colliderB, const CollisionInfo& info){
@@ -61,4 +67,8 @@ IGameObject* BulletManager::createBullet(const StartBulletInfo& info){
 void BulletManager::deleteBullet(IGameObject* obj){
 	if (obj != nullptr)
 		gameManager.deleteGameObject(obj);
+}
+
+void BulletManager::utilizeSharedBuffer(){
+	//managingBullets.push_back({ bullet });
 }

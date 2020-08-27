@@ -16,7 +16,7 @@ SceneData getSceneData() {
                 return rand(0, 500);
         };
         
-        for (int i = 0; i < 30; ++i) {
+        for (int i = 0; i < 10; ++i) {
                 data.walls.push_back({ {generatorX(), generatorY()}, {generatorX(), generatorY()} });
         }
 
@@ -35,13 +35,13 @@ SceneData getSceneData() {
         //        {  {50, 400} , {600, 50}}
         //};
 
-        for (int i = 0; i < 10; ++i) {
+        for (int i = 0; i < 50; ++i) {
                 data.bullets.push_back({
-                        {300.0+(float)(i*10.0), 300},
+                        {450.0+(float)(i*10.0), 250},
                         {1, (float)(1.0+i)},
-                        (float)(60.0+i),
-                        0,
-                        1000
+                        (float)(60.0 + i * 20),
+                        i/2.0f + 2.0f,
+                        i / 2.0f + 2.0f + 1.0f,
                         });
         }
 

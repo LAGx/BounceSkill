@@ -2,6 +2,7 @@
 #include "BulletInfo.h"
 #include "../Kernel/Collision/CollisionDetectorManager.h"
 #include <vector>
+#include <mutex>
 
 class BulletManager: public ICollisionListener {
 public:
@@ -18,7 +19,10 @@ public:
 private:
 	IGameObject* createBullet(const StartBulletInfo& info);
 	void deleteBullet(IGameObject*);
+	void utilizeSharedBuffer();
 
 private:
 	std::vector<ManagingBulletInfo> managingBullets;
+	std::vector<StartBulletInfo> sharedBufferInfo;
+	std::mutex bufferInfo_mut;
 };
