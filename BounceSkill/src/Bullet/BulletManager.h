@@ -1,6 +1,7 @@
 #pragma once
-#include "StartBulletInfo.h"
+#include "BulletInfo.h"
 #include "../Kernel/Collision/CollisionDetectorManager.h"
+#include <vector>
 
 class BulletManager: public ICollisionListener {
 public:
@@ -14,4 +15,10 @@ public:
 	// ICollisionListener
 	void onCollisionDetection(const ICollider* colliderA, const ICollider* colliderB, const CollisionInfo& info) override;
 
+private:
+	IGameObject* createBullet(const StartBulletInfo& info);
+	void deleteBullet(IGameObject*);
+
+private:
+	std::vector<ManagingBulletInfo> managingBullets;
 };

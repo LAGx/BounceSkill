@@ -16,7 +16,7 @@ SceneData getSceneData() {
                 return rand(0, 500);
         };
         
-        for (int i = 0; i < 300; ++i) {
+        for (int i = 0; i < 30; ++i) {
                 data.walls.push_back({ {generatorX(), generatorY()}, {generatorX(), generatorY()} });
         }
 
@@ -35,6 +35,64 @@ SceneData getSceneData() {
         //        {  {50, 400} , {600, 50}}
         //};
 
+        for (int i = 0; i < 10; ++i) {
+                data.bullets.push_back({
+                        {300.0+(float)(i*10.0), 300},
+                        {1, (float)(1.0+i)},
+                        (float)(60.0+i),
+                        0,
+                        1000
+                        });
+        }
+
+      //  data.bullets.push_back({
+      //  {100, 100},
+      //  {1, 1},
+      //  30,
+      //  3,
+      //  4
+      //          });
+      //
+      //  data.bullets.push_back({
+      //  {200, 100},
+      //  {1, 1},
+      //  60,
+      //  3,
+      //  4
+      //          });
+      //
+      //  data.bullets.push_back({
+      //  {300, 100},
+      //  {1, 1},
+      //  80,
+      //  0,
+      //  1
+      //          });
+      //
+      //  data.bullets.push_back({
+      //  {400, 100},
+      //  {1, 1},
+      //  120,
+      //  9,
+      //  11
+      //          });
+      //
+      //  data.bullets.push_back({
+      //  {500, 100},
+      //  {1, 1},
+      //  1,
+      //  0,
+      //  10
+      //          });
+      //
+      //  data.bullets.push_back({
+      //  {600, 100},
+      //  {1, 1},
+      //  0,
+      //  5,
+      //  11
+      //          });
+      //
         return data;
 }
 

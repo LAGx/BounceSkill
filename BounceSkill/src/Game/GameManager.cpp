@@ -13,36 +13,10 @@ void GameManager::init(){
 
 
 void GameManager::spawnScene(const SceneData& data) {
-        float bullet_speed = 120;
-
-        // spawn bullet
-        StartBulletInfo bulletInfo;
-        bulletInfo.direction = {2, 1};
-        bulletInfo.position = {300, 100};
-        bulletInfo.speed = bullet_speed;
-        IGameObject* bullet = new BulletObject(bulletInfo);
-        spawnGameObject(bullet);
-        
-        StartBulletInfo bulletInfo2;
-        bulletInfo2.direction = { 2, -1 };
-        bulletInfo2.position = { 300, 350 };
-        bulletInfo2.speed = bullet_speed;
-        IGameObject* bullet2 = new BulletObject(bulletInfo2);
-        spawnGameObject(bullet2);
-        
-        StartBulletInfo bulletInfo3;
-        bulletInfo3.direction = { -0.1, 1 };
-        bulletInfo3.position = { 500, 50 };
-        bulletInfo3.speed = bullet_speed;
-        IGameObject* bullet3 = new BulletObject(bulletInfo3);
-        spawnGameObject(bullet3);
-        
-        StartBulletInfo bulletInfo4;
-        bulletInfo4.direction = { -3, -1 };
-        bulletInfo4.position = { 500, 350 };
-        bulletInfo4.speed = bullet_speed;
-        IGameObject* bullet4 = new BulletObject(bulletInfo4);
-        spawnGameObject(bullet4);
+        // spawn bullets
+        for (const auto& bulletInfo : data.bullets) {
+                bulletManager->Fire(bulletInfo);
+        }
 
         // spawn walls 
         for (const auto& wallData : data.walls) {
@@ -123,11 +97,13 @@ void GameManager::postUpdate(){
         for (auto obj : trashedGameObjects) {
                 auto found = std::find(gameObjects.begin(), gameObjects.end(), obj);
 
-                if (auto collider = obj->getCollider())
-                        collisionManager->unregisterObject(collider);
-                delete obj;
+                if (found != gameObjects.end()) {
+                        if (auto collider = (*found)->getCollider())
+                                collisionManager->unregisterObject(collider);
+                        delete (*found);
 
-                gameObjects.erase(found);
+                        gameObjects.erase(found);
+                }
         }
         
         trashedGameObjects.clear();

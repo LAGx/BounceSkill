@@ -2,7 +2,7 @@
 #include "../Kernel/IGameObject.h"
 #include "SFML/Graphics/Color.hpp"
 #include "SFML/Graphics/CircleShape.hpp"
-#include "StartBulletInfo.h"
+#include "BulletInfo.h"
 #include "../Kernel/Collision/CollisionDetectorManager.h"
 #include "../Kernel/Collision/Collider/ColliderLineTwoPoint.h"
 

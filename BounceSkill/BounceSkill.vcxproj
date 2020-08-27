@@ -165,7 +165,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Bullet\BulletObject.h" />
-    <ClInclude Include="src\Bullet\StartBulletInfo.h" />
+    <ClInclude Include="src\Bullet\BulletInfo.h" />
     <ClInclude Include="src\Bullet\BulletManager.h" />
     <ClInclude Include="src\ExternalCode\FPSController.h" />
     <ClInclude Include="src\ExternalCode\ListenerManager.h" />
