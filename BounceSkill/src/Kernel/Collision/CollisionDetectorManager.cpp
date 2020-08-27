@@ -2,17 +2,12 @@
 #include <algorithm>
 #include "Detector/CollisionDetectorLineToLine.h"
 
-CollisionDetectorManager::CollisionDetectorManager() : 
-	collisionDetectorList({
-		new CollisionDetectorLineToLine()
-		})
-	{}
+CollisionDetectorManager::CollisionDetectorManager(){
+	collisionDetectorList.push_back(&lineToLineDetector);
+}
 
 
-CollisionDetectorManager::~CollisionDetectorManager()
-{
-	for (auto el : collisionDetectorList)
-		delete el;
+CollisionDetectorManager::~CollisionDetectorManager(){
 }
 
 void CollisionDetectorManager::update(){
@@ -29,8 +24,9 @@ void CollisionDetectorManager::update(){
 
 			if (detector) {
 				CollisionInfo info;
-				detector->detectionMethod(colliderA, colliderB, info);
-				InvokeListener(&ICollisionListener::onCollisionDetection, colliderA, colliderB, info);
+
+				if (detector->detectionMethod(colliderA, colliderB, info))
+					InvokeListener(&ICollisionListener::onCollisionDetection, colliderA, colliderB, info);
 			}
 			else {
 				assert("can`t find collision detector for such colliders.");
@@ -57,9 +53,16 @@ void CollisionDetectorManager::unregisterObject(const ICollider* collider){
 
 
 ICollisionDetector* CollisionDetectorManager::findDetector(const ClassColliderNickPair& nickPair) const{
-	auto found = std::find_if(collisionDetectorList.begin(), collisionDetectorList.end(), [&nickPair](const ICollisionDetector* detector) -> bool {
-		return detector->getSupportedNickPair() == nickPair;
-		});
+	//auto found = std::find_if(collisionDetectorList.begin(), collisionDetectorList.end(), [&nickPair](const ICollisionDetector* detector) -> bool {
+	//	return detector->getSupportedNickPair() == nickPair;
+	//	});
+	//
+	//return found != collisionDetectorList.end() ? *found : nullptr;
 
-	return found != collisionDetectorList.end() ? *found : nullptr;
+	for (int i = 0; i < collisionDetectorList.size(); ++i) {
+		if (collisionDetectorList[i]->getSupportedNickPair() == nickPair)
+			return collisionDetectorList[i];
+	}
+
+	return nullptr;
 }

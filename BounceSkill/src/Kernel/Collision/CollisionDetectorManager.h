@@ -4,6 +4,7 @@
 #include "Collider/ICollider.h"
 #include <vector>
 #include "Detector/ICollisionDetector.h"
+#include "Detector/CollisionDetectorLineToLine.h"
 
 class ICollisionListener {
 public:
@@ -27,5 +28,6 @@ public:
 	ICollisionDetector* findDetector(const ClassColliderNickPair&) const;
 
 private:
+	CollisionDetectorLineToLine lineToLineDetector;
 	std::vector<ICollisionDetector*> collisionDetectorList;
 };

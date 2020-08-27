@@ -7,7 +7,7 @@
 #include "../Kernel/Collision/Collider/ColliderLineTwoPoint.h"
 
 // Assuume that bullet phisically is a line of two points between current point and a point on a previuos frame
-class BulletObject : IGameObject, ICollisionListener {
+class BulletObject : public IGameObject, ICollisionListener {
 public:
 	BulletObject() = delete;
 	BulletObject(const StartBulletInfo& info);
@@ -29,6 +29,9 @@ public:
 	static const float drawableRadius;
 	static const float drawableSegments;
 	static const ClassId gameClassId;
+private:
+	void reflectFromLine(glm::vec2 pointA, glm::vec2 pointB, glm::vec2 touchPoint);
+
 private:
 	sf::CircleShape shape;
 	DynamicColliderLineTwoPoint deltaCollider;

@@ -1,5 +1,6 @@
 #include "CollisionDetectorLineToLine.h"
 #include <glm/glm.hpp>
+#include "../../Math.h"
 
 ClassColliderNickPair CollisionDetectorLineToLine::getSupportedNickPair() const
 {
@@ -20,13 +21,13 @@ bool CollisionDetectorLineToLine::detectionMethod(const ICollider* colliderA, co
 	glm::vec3 prod1 = glm::cross(cut1, { (castedColliderB->pointA - castedColliderA->pointA), 0 });
 	glm::vec3 prod2 = glm::cross(cut1, { (castedColliderB->pointB - castedColliderA->pointA), 0 });
 
-	if (glm::sign(prod1.z) == glm::sign(prod2.z) || (prod1.z == 0) || (prod2.z == 0))
+	if (isZero(glm::sign(prod1.z) - glm::sign(prod2.z)) || (prod1.z == 0) || (prod2.z == 0))
 		return false;
 
 	prod1 = glm::cross(cut2, { (castedColliderA->pointA - castedColliderB->pointA), 0 });
 	prod2 = glm::cross(cut2, { (castedColliderA->pointB - castedColliderB->pointA), 0 });
 
-	if (glm::sign(prod1.z) == glm::sign(prod2.z) || (prod1.z == 0) || (prod2.z == 0))
+	if (isZero(glm::sign(prod1.z) - glm::sign(prod2.z)) || (prod1.z == 0) || (prod2.z == 0))
 		return false;
 
 	info.touchPoint.x = castedColliderA->pointA.x + cut1.x * fabs(prod1.z) / fabs(prod2.z - prod1.z);

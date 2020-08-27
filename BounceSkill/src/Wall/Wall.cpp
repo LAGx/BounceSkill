@@ -17,6 +17,10 @@ const ICollider* Wall::getCollider() const {
 	return &collider; 
 }
 
+WallData Wall::getWallData() const{
+	return {collider.pointA, collider.pointB};
+}
+
 ClassId Wall::getClassId() const{
 	return gameClassId;
 }

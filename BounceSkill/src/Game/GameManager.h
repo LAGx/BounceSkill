@@ -13,6 +13,10 @@ public:
 	void run();
 	void cleanup();
 
+	// owner of resource becomes GameManager
+	void spawnGameObject(IGameObject*);
+	void deleteGameObject(IGameObject*);
+
 	~GameManager();
 
 public:
@@ -20,6 +24,7 @@ public:
 
 private:
 	void onUpdate();
+	void postUpdate();
 
 private:
 	std::unique_ptr<sf::RenderWindow> window;
@@ -28,6 +33,7 @@ private:
 	TimeInfo currentTimeInfo;
 
 	std::vector<IGameObject*> gameObjects;
+	std::vector<IGameObject*> trashedGameObjects;
 };
 
 extern GameManager gameManager;

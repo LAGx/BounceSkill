@@ -15,8 +15,11 @@ public:
 	void simulate(const TimeInfo&) override;
 	const ICollider* getCollider() const override;
 
+	WallData getWallData() const;
+
 public:
 	const static ClassId gameClassId;
+
 private:
 	StaticColliderLineTwoPoint collider;
 	const DrawableLine drawableLine;
