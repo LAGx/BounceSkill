@@ -56,7 +56,7 @@ void BulletManager::SyncFire(const StartBulletInfo& bullet) {
 	std::unique_lock<std::mutex> forceWait(forceSync_mut);
 
 	const auto waitPredicate = [this]() -> bool{
-		return true;//this->forceGetSharedResource();
+		return !this->forceGetSharedResource();
 	};
 
 	forceSync_cv.wait(forceWait, waitPredicate);

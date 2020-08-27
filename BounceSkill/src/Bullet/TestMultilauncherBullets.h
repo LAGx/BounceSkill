@@ -2,8 +2,6 @@
 #include <vector>
 #include <thread>
 
-#define MULTILAUNCHER_THREAD_AMOUNT 4
-
 class TestMultilauncherBullets {
 public:
 	void init();
@@ -12,6 +10,8 @@ public:
 	void launcher(int i);
 
 private:
+	const static unsigned int threadsAmount;
+	const static unsigned int bulletPerThreadAmount;
 	std::vector<std::thread> threads;
 
 };
